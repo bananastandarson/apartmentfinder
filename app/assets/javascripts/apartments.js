@@ -12,18 +12,18 @@ function make_google_map(locations){
 
 $(document).ready(function(){
 
-
-  $.ajax({
-    dataType: 'json',
-    url: "apartments/get_all",
-    method: "get",
-    success: function(data){
-      make_google_map(data);
-    },
-    error: function(jqXHR, textStatus, errorThrown) {
-      // alert(errorThrown);
-    }
-  })
-
+  if($("#index_map").length){
+    $.ajax({
+      dataType: 'json',
+      url: "/apartments/get_all",
+      method: "get",
+      success: function(data){
+        make_google_map(data);
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+        alert(errorThrown);
+      }
+    })
+  }
 
 })
