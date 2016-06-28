@@ -5,8 +5,7 @@
 <table>
   <thead>
     <tr>
-      <th>Latitude</th>
-      <th>Longitude</th>
+      <th></th>
       <th>Address</th>
       <th>Name</th>
       <th>Contact</th>
@@ -17,12 +16,10 @@
   <tbody>
     <% @apartments.each do |apartment| %>
       <tr>
-        <td><%= apartment.latitude %></td>
-        <td><%= apartment.longitude %></td>
+        <td><%= image_tag apartment.image :small %></td>
         <td><%= apartment.address %></td>
         <td><%= apartment.name %></td>
         <td><%= apartment.contact %></td>
-        <td><%= image_tag apartment.image :small %></td>
         <td><%= link_to 'Show', apartment %></td>
         <td><%= link_to 'Edit', edit_apartment_path(apartment) %></td>
         <td><%= link_to 'Destroy', apartment, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160628170352) do
+ActiveRecord::Schema.define(version: 20160638185146) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "accounts", force: :cascade do |t|
+    t.string   "name"
+    t.string   "password"
+    t.string   "account_type"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
 
   create_table "apartments", force: :cascade do |t|
     t.float    "latitude"
@@ -28,6 +40,10 @@ ActiveRecord::Schema.define(version: 20160628170352) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "account_id"
   end
 
+  add_index "apartments", ["account_id"], name: "index_apartments_on_account_id", using: :btree
+
+  add_foreign_key "apartments", "accounts"
 end

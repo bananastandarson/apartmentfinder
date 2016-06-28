@@ -1,16 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Latitude:</strong>
-  <%= @apartment.latitude %>
-</p>
-
-<p>
-  <strong>Longitude:</strong>
-  <%= @apartment.longitude %>
-</p>
-
-<p>
   <strong>Address:</strong>
   <%= @apartment.address %>
 </p>
@@ -21,8 +11,9 @@
 </p>
 
 <p>
+  <%= image_tag @apartment.account.image :avatar %>
   <strong>Contact:</strong>
-  <%= @apartment.contact %>
+  <%= @apartment.account.name %>
 </p>
 
 <p>

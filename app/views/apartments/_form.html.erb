@@ -11,31 +11,30 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :latitude %><br>
-    <%= f.text_field :latitude %>
-  </div>
-  <div class="field">
-    <%= f.label :longitude %><br>
-    <%= f.text_field :longitude %>
-  </div>
-  <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_field :address %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :contact %><br>
-    <%= f.text_field :contact %>
-  </div>
-  <div class="field">
-    <%= f.label :image %><br>
-    <%= f.file_field :image %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <% if cookies[:login_id] != 'empty' %>
+
+    <div class="field">
+      <%= f.label :address %><br>
+      <%= f.text_field :address %>
+    </div>
+    <div class="field">
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :image %><br>
+      <%= f.file_field :image %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+    <div class="field">
+      <input type="hidden" name="apartment[account_id]" id="apartment_account_id" value="<%= cookies[:login_id] %>" />
+    </div>
+
+  <% else %>
+    <h1>Log In to make a posting</h1>
+  <% end %>
+
 <% end %>

@@ -1,8 +1,16 @@
 Rails.application.routes.draw do
   root 'apartments#index'
+
+  resources :accounts
+  get 'navigation/create'
+
   resources :apartments do
     get :get_all, on: :collection
   end
+
+  post '/navigation/login'
+
+  get '/navigation/logout'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
