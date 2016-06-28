@@ -21,7 +21,7 @@ $(document).ready(function(){
       make_google_map(data);
     },
     error: function(jqXHR, textStatus, errorThrown) {
-      alert(errorThrown);
+      // alert(errorThrown);
     }
   })
 

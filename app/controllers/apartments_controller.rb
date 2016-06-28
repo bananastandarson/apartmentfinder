@@ -16,7 +16,7 @@ class ApartmentsController < ApplicationController
     @apartment = Apartment.all
     apartment = []
     @apartment.each do |listing|
-      apartment << {id: listing.id, lat: listing.latitude, lng: listing.longitude, infowindow: listing.name}
+      apartment << {id: listing.id, lat: listing.latitude, lng: listing.longitude, infowindow: listing.image}
     end
     render :json => apartment.to_json
   end
@@ -78,6 +78,6 @@ class ApartmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def apartment_params
-      params.require(:apartment).permit(:latitude, :longitude, :address, :name, :contact)
+      params.require(:apartment).permit(:latitude, :longitude, :address, :name, :contact, :image)
     end
 end
